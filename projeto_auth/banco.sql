@@ -1,0 +1,15 @@
+-- Criar o banco de dados
+CREATE DATABASE IF NOT EXISTS integrador
+  DEFAULT CHARACTER SET utf8mb4
+  DEFAULT COLLATE utf8mb4_unicode_ci;
+
+USE integrador;
+
+-- Criar tabela de usuários
+CREATE TABLE IF NOT EXISTS users (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(150) NOT NULL,
+    email VARCHAR(190) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

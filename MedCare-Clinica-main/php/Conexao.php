@@ -1,15 +1,15 @@
 <?php
-class Conexao {
-    private static $servidor = "localhost";
-    private static $banco    = "clinica";
-    private static $usuario  = "root";
-    private static $senha    = "2308";
+// Definindo a conexão com o banco de dados
+$servidor = "localhost";  // ou o endereço do seu banco de dados
+$usuario = "root";        // seu usuário do banco de dados
+$senha = "root";              // sua senha do banco de dados
+$banco = "clinica";       // nome do banco de dados
 
+// Criando a conexão
+$conn = mysqli_connect($servidor, $usuario, $senha, $banco);
 
-public static function getConexao()
- {
-  $conectar = new PDO("mysql:host=" . self::$servidor . ";dbname=" . self::$banco, self::$usuario, self::$senha);
-   return $conectar;
- }
+// Verificando se a conexão foi estabelecida
+if (!$conn) {
+    die("Falha na conexão: " . mysqli_connect_error());
 }
 ?>
